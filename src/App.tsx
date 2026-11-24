@@ -5,7 +5,7 @@ import { ArrowDownRight, ArrowUpRight, Github, Globe2, Laptop2, Moon, Sun, Music
 type Repo = { name: string; description: string | null; html_url: string; language: string | null; stargazers_count: number; fork: boolean }
 type Profile = { login: string; name: string | null; bio: string | null; avatar_url: string; followers: number; public_repos: number; html_url: string; location: string | null }
 
-const fallbackProfile: Profile = { login: 'LoveMSF', name: 'Artem', bio: 'Independent developer building thoughtful desktop, mobile, and web experiences. Interested in Japanese design, useful software, and the details between.', avatar_url: 'https://github.com/LoveMSF.png', followers: 0, public_repos: 0, html_url: 'https://github.com/LoveMSF', location: 'Tokyo, Japan' }
+const fallbackProfile: Profile = { login: 'LoveMSF', name: 'Artem', bio: 'Independent developer building thoughtful desktop, mobile, and web experiences. Interested in Japanese design, useful software, and the details between.', avatar_url: 'https://github.com', followers: 0, public_repos: 0, html_url: 'https://github.com', location: 'Tokyo, JP' }
 const featured = [
   { name: 'GlyphIsland', number: '01', description: 'A cross-platform Nothing OS inspired desktop overlay. Bring expressive glyph-style controls to Windows and Linux.', tags: ['Desktop', 'Electron', 'Windows · Linux'], url: 'https://github.com/LoveMSF/glyph-island', icon: Laptop2, downloads: [{ label: '.EXE', url: 'https://github.com/LoveMSF/glyph-island/releases/latest' }, { label: '.APPIMAGE', url: 'https://github.com/LoveMSF/glyph-island/releases/latest' }] },
   { name: 'WalkmanBox', number: '02', description: 'An offline-first music player for Android and the web, with unlimited IndexedDB storage and a dot-matrix visualizer.', tags: ['Android', 'Capacitor', 'IndexedDB'], url: 'https://github.com/LoveMSF/walkman-box', icon: Music2, downloads: [{ label: '.APK', url: 'https://github.com/LoveMSF/walkman-box/releases/latest' }] },
@@ -14,7 +14,7 @@ const featured = [
   { name: 'Koji — Japanese Language School', number: '05', description: 'A quiet, minimalist landing page shaped by the Japanese idea of Yohaku: the beauty of meaningful empty space.', tags: ['Design', 'Web', 'Yohaku'], url: 'https://github.com/LoveMSF/Koji-JapSchool', icon: Globe2 },
 ]
 const stack = ['React', 'TypeScript', 'Electron', 'Capacitor', 'Tailwind CSS', 'Vite', 'Git', 'Arch Linux']
-const clockFormatter = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Kyiv', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
+const clockFormatter = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Tokyo', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
 
 function App() {
   const [profile, setProfile] = useState(fallbackProfile)
@@ -75,9 +75,9 @@ function App() {
           <div className="card-top"><span className="micro-label">DEVELOPER PROFILE</span><span className="profile-online"><i /> {apiStatus === 'live' ? 'LIVE DATA' : 'PROFILE'}</span></div>
           <div className="profile-main"><img className="avatar" src={profile.avatar_url} alt="Artem's GitHub avatar" /><div><h2>{profile.name || 'Artem'}</h2><p>@{profile.login}</p></div><a className="icon-button" href={profile.html_url} target="_blank" rel="noreferrer" aria-label="Open GitHub profile"><Github size={17} /></a></div>
           <p className="profile-bio">{profile.bio || fallbackProfile.bio}</p>
-          <div className="profile-foot"><span><b>{profile.followers}</b> FOLLOWERS</span><span><b>{profile.public_repos}</b> PUBLIC REPOS</span><span className="location"><MapPin size={12} /> ODESA, UA</span></div>
+          <div className="profile-foot"><span><b>{profile.followers}</b> FOLLOWERS</span><span><b>{profile.public_repos}</b> PUBLIC REPOS</span><span className="location"><MapPin size={12} /> TOKYO, JP</span></div>
         </motion.aside>
-        <div className="hero-bottom"><span className="scroll-hint"><span className="scroll-line" /> SCROLL TO EXPLORE</span><span className="coordinates">46°28′N&nbsp; 30°44′E</span><span className="clock"><span className="live-dot" /> ODESA / EET <b>{clock}</b></span></div>
+        <div className="hero-bottom"><span className="scroll-hint"><span className="scroll-line" /> SCROLL TO EXPLORE</span><span className="coordinates">35°40′N&nbsp; 139°45′E</span><span className="clock"><span className="live-dot" /> TOKYO / JST <b>{clock}</b></span></div>
       </section>
 
       <section id="work" className="section-block">
